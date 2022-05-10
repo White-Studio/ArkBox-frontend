@@ -1,7 +1,8 @@
 import './style/App.css';
 import React from "react";
-import {createTheme, Paper, ThemeProvider} from "@mui/material";
+import {createTheme, CssBaseline, Paper, ThemeProvider} from "@mui/material";
 import Header from "./components/Header";
+
 
 export default class App extends React.Component {
     constructor(props) {
@@ -23,8 +24,17 @@ export default class App extends React.Component {
                 mode: data.darkMode,
                 theme: createTheme({
                     palette: {
-                        mode: data.darkMode
-                    }
+                        mode: data.darkMode,
+                    },
+                    // components: {
+                    //     MuiCssBaseline: {
+                    //         styleOverrides: `
+                    //                 * {
+                    //                     transition: all 0.3s linear !important;
+                    //                 }
+                    //             `,
+                    //     },
+                    // },
                 })
             }
         }
@@ -34,8 +44,17 @@ export default class App extends React.Component {
                     mode: this.state.darkMode.mode==="light"?"dark":"light",
                     theme: createTheme({
                         palette: {
-                            mode: this.state.darkMode.mode==="light"?"dark":"light"
-                        }
+                            mode: this.state.darkMode.mode==="light"?"dark":"light",
+                        },
+                        // components: {
+                        //     MuiCssBaseline: {
+                        //         styleOverrides: `
+                        //             * {
+                        //                 transition: all 0.3s linear !important;
+                        //             }
+                        //         `,
+                        //     }
+                        // }
                     })
                 }
             })
@@ -62,8 +81,11 @@ export default class App extends React.Component {
     }
 
     render() {
+
+
         return (
             <ThemeProvider theme={this.state.darkMode.theme}>
+                <CssBaseline />
                 <Paper style={{height: "100vh", borderRadius: 0}}>
                     <Header changeTheme={this.changeTheme}/>
                 </Paper>
