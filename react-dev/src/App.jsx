@@ -120,13 +120,13 @@ export default class App extends React.Component {
                                 {/*<CircularProgress />*/}
                                 {/*<Button onClick={() => this.setState({logo: !this.state.logo})}>click</Button>*/}
                                 <div style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
-                                    <div style={{height: "192px"}}>
+                                    <div className={"divStart"}>
                                         <Collapse timeout={3000} in={this.state.logo}>
-                                            <Logo width="192px" className="logo-dark"/>
+                                            <Logo className="logo-dark logoStart"/>
                                         </Collapse>
                                     </div>
                                     <Collapse orientation="horizontal" timeout={3000} in={this.state.logoText}>
-                                        <p style={{fontSize: "100px"}}>White&nbsp;Studio</p>
+                                        <p className={"nameStart"}>White&nbsp;Studio</p>
                                     </Collapse>
                                 </div>
                             </div>

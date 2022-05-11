@@ -18,3 +18,27 @@ body.light-theme .logo-light {
     justify-content: center;
     align-items: center;
 }
+
+@media (max-width: 425px) {
+    .logoStart {
+        width: 60px;
+    }
+    .nameStart {
+        font-size: 40px;
+    }
+    .divStart {
+        height: 60px;
+    }
+}
+
+@media (min-width: 426px) {
+    .logoStart {
+        width: 192px;
+    }
+    .nameStart {
+        font-size: 100px;
+    }
+    .divStart {
+        height: 192px;
+    }
+}
