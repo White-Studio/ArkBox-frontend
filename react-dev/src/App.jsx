@@ -1,6 +1,6 @@
 import './style/App.css';
 import React from "react";
-import {Button, CircularProgress, Collapse, createTheme, CssBaseline, Fade, Paper, ThemeProvider} from "@mui/material";
+import {Collapse, createTheme, CssBaseline, Fade, Paper, ThemeProvider} from "@mui/material";
 import Header from "./components/Header";
 import {ReactComponent as Logo} from "./logo.svg";
 import DarkModeButton from "./components/DarkModeButton";

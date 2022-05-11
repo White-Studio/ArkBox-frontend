@@ -1,9 +1,10 @@
 import React from "react";
 import TypeAnimation from 'react-type-animation';
-import {sleep} from "../function";
+import {genID, sleep} from "../function";
 import "../style/login.css";
-import Select from '@mui/material/Select';
-import {Collapse, FormControl, InputLabel, MenuItem, TextField} from "@mui/material";
+import {Collapse, FormControl, FormHelperText, IconButton, MenuItem, TextField} from "@mui/material";
+import {grey} from "@mui/material/colors";
+import CachedIcon from '@mui/icons-material/Cached';
 
 export default class Login extends React.Component {
     constructor(props) {
@@ -15,7 +16,9 @@ export default class Login extends React.Component {
             ready: false,
             showBox: false,
             loginInputFade: false,
-            user: ""
+            user: "",
+            id: "",
+            password: ""
         }
         this.loginRef = React.createRef();
 
@@ -31,12 +34,18 @@ export default class Login extends React.Component {
         await sleep(2000)
         this.setState({showBox: true})
         await sleep(1)
-        const { innerWidth: w, innerHeight: h } = window;
-        this.loginRef.current.style.width = w <= 425 ? "90vw" : "60vw"
+        const { innerWidth: w } = window;
+        this.loginRef.current.style.width = w <= 500 ? "90vw" : "60vw"
         await sleep(2000)
-        this.loginRef.current.style.height = w <= 425 ? "80vh" : "70vh"
+        this.loginRef.current.style.height = w <= 500 ? "80vh" : "70vh"
         await sleep(1000)
         this.setState({loginInputFade: true})
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (this.state.user === "signUp" && this.state.id === "") {
+            this.setState({id: genID()})
+        }
     }
 
 
@@ -66,8 +75,35 @@ export default class Login extends React.Component {
                                             <MenuItem key={e.id} value={e.id}>{e.username}</MenuItem>
                                         ))}
                                         <MenuItem key={"login"} value={"login"}>Use a existed Access Permission</MenuItem>
-                                        <MenuItem key={"signIn"} value={"signIn"}>Apply for a new Access Permission</MenuItem>
+                                        <MenuItem key={"signUp"} value={"signUp"}>Apply for a new Access Permission</MenuItem>
                                     </TextField>
+                                    {this.state.user === "signUp" ?
+                                        <div style={{margin: "1em"}}>
+                                            <TextField
+                                                required
+                                                label={"Username"}
+                                                value={this.username}
+                                                fullWidth
+                                            />
+                                            <div style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
+                                                <TextField
+                                                    required
+                                                    type={"password"}
+                                                    label={"Password"}
+                                                    value={this.password}
+                                                    style={{width: "50%"}}
+                                                />
+                                                <h1
+                                                    className={"numberId"}>
+                                                    ArkBoxID#{this.state.id}
+                                                </h1>
+                                                <IconButton onClick={() => this.setState({id: genID()})}>
+                                                    <CachedIcon/>
+                                                </IconButton>
+                                            </div>
+                                        </div> : <div>
+
+                                        </div>}
                                 </FormControl>
                             </Collapse>
                         </div> : null }
