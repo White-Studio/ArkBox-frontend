@@ -31,15 +31,6 @@ export default class App extends React.Component {
                     palette: {
                         mode: data.darkMode,
                     },
-                    // components: {
-                    //     MuiCssBaseline: {
-                    //         styleOverrides: `
-                    //                 * {
-                    //                     transition: all 0.3s linear !important;
-                    //                 }
-                    //             `,
-                    //     },
-                    // },
                 })
             },
             logo: false,
@@ -56,15 +47,6 @@ export default class App extends React.Component {
                         palette: {
                             mode: this.state.darkMode.mode === "light" ? "dark" : "light",
                         },
-                        // components: {
-                        //     MuiCssBaseline: {
-                        //         styleOverrides: `
-                        //             * {
-                        //                 transition: all 0.3s linear !important;
-                        //             }
-                        //         `,
-                        //     }
-                        // }
                     })
                 }
             })
@@ -117,8 +99,6 @@ export default class App extends React.Component {
                                 <div className="logo-light" style={{position: "absolute", top: "0", right: "0"}}>
                                     <DarkModeButton changeTheme={this.changeTheme}/>
                                 </div>
-                                {/*<CircularProgress />*/}
-                                {/*<Button onClick={() => this.setState({logo: !this.state.logo})}>click</Button>*/}
                                 <div style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
                                     <div className={"divStart"}>
                                         <Collapse timeout={3000} in={this.state.logo}>

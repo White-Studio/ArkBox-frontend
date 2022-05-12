@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Graduate&display=swap');
 
 .login-box {
     width: 0;
     height: 1px;
-    transition: width 2s, height 2s !important;
+    padding: 0;
+    transition: width 1.5s, height 1.5s, padding 1.5s !important;
 }
 
 body.light-theme .login-box {
@@ -15,6 +16,7 @@ body.dark-theme .login-box {
     box-shadow: white 0 0 3px;
 }
 
-.numberId {
-    font-family: "Fredoka One", cursive;
+.numberId, .numberId * {
+    font-family: "Graduate", cursive !important;
+
 }
