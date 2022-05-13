@@ -4,7 +4,7 @@
     width: 0;
     height: 1px;
     padding: 0;
-    transition: width 1.5s, height 1.5s, padding 1.5s !important;
+    transition: all 1.5s !important;
 }
 
 body.light-theme .login-box {
@@ -18,5 +18,50 @@ body.dark-theme .login-box {
 
 .numberId, .numberId * {
     font-family: "Graduate", cursive !important;
+}
 
+body.dark-theme .login-box-loading::after {
+    content: "";
+    display: inline-block;
+    border: white solid 1px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 2em;
+    height: 2em;
+    transform: translate(-50%, -50%);
+    box-shadow: white 0 0 3px;
+    animation: 2s ease-out zoomOut infinite;
+}
+
+body.light-theme .login-box-loading::after {
+    content: "";
+    display: inline-block;
+    border: black solid 1px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 2em;
+    height: 2em;
+    transform: translate(-50%, -50%);
+    box-shadow: white 0 0 3px;
+    animation: 2s ease-out zoomOut infinite;
+}
+
+@keyframes zoomOut {
+    0% {
+        width: 2em;
+        height: 2em;
+        opacity: 0;
+    }
+    50% {
+        width: 2em;
+        height: 2em;
+        opacity: 1;
+    }
+    100% {
+        width: 4em;
+        height: 4em;
+        opacity: 0;
+    }
 }
