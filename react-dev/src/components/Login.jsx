@@ -77,7 +77,6 @@ export default class Login extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        console.log(this.state);
         if (this.state.user === "signUp" && this.state.id === "") {
             this.setState({id: genID()})
         }
@@ -128,7 +127,7 @@ export default class Login extends React.Component {
                                     <Collapse in={this.state.user === "login"} timeout={1000}>
                                         <Box style={{paddingTop: "1em"}}>
                                             <div style={{margin: "1em"}}>
-                                                <p style={{textAlign: "center", fontSize: "2em"}}
+                                                <div style={{textAlign: "center", fontSize: "2em"}}
                                                    className={"numberId cont"}>
                                                     ArkBoxID:
                                                     <FormControl>
@@ -148,7 +147,7 @@ export default class Login extends React.Component {
                                                             type="number"
                                                         />
                                                     </FormControl>
-                                                </p>
+                                                </div>
                                             </div>
                                             <div style={{margin: "1em"}}>
                                                 <FormControl fullWidth>
@@ -374,7 +373,6 @@ export default class Login extends React.Component {
                                     </Collapse>
                                 </Collapse>
                             </div> : null}
-
                     </div> : null
                 }
             </>

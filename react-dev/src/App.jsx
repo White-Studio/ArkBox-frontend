@@ -6,6 +6,7 @@ import {ReactComponent as Logo} from "./logo.svg";
 import DarkModeButton from "./components/DarkModeButton";
 import Login from "./components/Login"
 import {sleep} from "./function";
+import Info from "./pages/Info";
 
 
 export default class App extends React.Component {
@@ -124,6 +125,7 @@ export default class App extends React.Component {
                         </Fade>
                     }
                 </Paper>
+                <Info/>
             </ThemeProvider>
         );
     }

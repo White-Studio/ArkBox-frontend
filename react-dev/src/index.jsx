@@ -9,6 +9,9 @@ import {
     Route
 } from "react-router-dom";
 import Info from "./pages/Info";
+import axios from "axios";
+
+axios.defaults.baseURL = "https://ark-box-backend.vercel.app"
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
